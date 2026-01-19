@@ -14,8 +14,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // getProducts로 전자제품 리스트 호출
-        List<Product> products = Product.getProducts();
+        Product product1 = new Product("Galaxy S25", "1,200,000원", "최신 안드로이드 스마트폰", 200);
+        Product product2 = new Product("iPhone 16", "1,350,000원", "Apple의 최신 스마트폰", 150);
+        Product product3 = new Product("MacBook Pro", "2,400,000원", "M3 칩셋이 탑재된 노트북", 100);
+        Product product4 = new Product("AirPods Pro", "350,000원", "노이즈 캔슬링 무선 이어폰", 250);
+
+        List<Product> products = new ArrayList<>();
+
+        products.add(product1);
+        products.add(product2);
+        products.add(product3);
+        products.add(product4);
 
         System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
 
