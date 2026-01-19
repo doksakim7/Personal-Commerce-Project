@@ -28,6 +28,7 @@ public class CommerceSystem {
         System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
 
         // 번호와 함께 전자제품의 이름, 가격, 설명 출력
+        // ?: 향상된 for 문으로 할 수 있는지 궁금함
         for (int i = 0; i < products.size(); i++) {
             System.out.println((i + 1) + ". " + products.get(i).name + " | " + products.get(i).price + " | " + products.get(i).description);
         }
