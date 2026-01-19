@@ -10,7 +10,8 @@ import java.util.List;
  * Date: 26. 1. 19.
  * Time: 오후 2:31
  **/
-
+// ?: 궁금했던 내용
+// !: 공부하면서 알게 된 내용
 public class Product {
 
     // 이름, 설명, 가격, 수량 필드 생성
@@ -24,5 +25,4 @@ public class Product {
         this.price = price;
         this.quantity = quantity;
     }
-
 }
