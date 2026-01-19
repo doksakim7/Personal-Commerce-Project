@@ -25,6 +25,4 @@ public class Product {
         this.quantity = quantity;
     }
 
-    // 전자제품 인스턴스화 후 List에 추가하고 리스트를 반환
-
 }
