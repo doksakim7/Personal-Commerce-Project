@@ -12,10 +12,11 @@ package com.example.commerce;
 // !: 공부하면서 알게 된 내용
 public class Product {
 
-    String name, description, price;
+    String name, description;
+    long price;
     int quantity;
 
-    public Product(String name, String price, String description, int quantity) {
+    public Product(String name, long price, String description, int quantity) {
         this.name = name;
         this.description = description;
         this.price = price;

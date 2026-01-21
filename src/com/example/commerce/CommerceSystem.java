@@ -42,12 +42,12 @@ public class CommerceSystem {
             // 1번 전자제품 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
             if (inputNumber == 1) {
                 for (int i = 0; i < elecProducts.size(); i++) {
-                    System.out.println((i + 1) + ". " + elecProducts.get(i).name + " | " + elecProducts.get(i).price + " | " + elecProducts.get(i).description);
+                    System.out.println((i + 1) + ". " + elecProducts.get(i).name + " | " + elecProducts.get(i).price + "원 | " + elecProducts.get(i).description);
                 }
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= elecProducts.size()) {
-                        System.out.println("선택한 상품: " + elecProducts.get(inputElecNumber - 1).name + " | " + elecProducts.get(inputElecNumber - 1).price + " | " + elecProducts.get(inputElecNumber - 1).description + " | 재고: " + elecProducts.get(inputElecNumber - 1).quantity + "개");
+                        System.out.println("선택한 상품: " + elecProducts.get(inputElecNumber - 1).name + " | " + elecProducts.get(inputElecNumber - 1).price + "원 | " + elecProducts.get(inputElecNumber - 1).description + " | 재고: " + elecProducts.get(inputElecNumber - 1).quantity + "개");
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
@@ -57,12 +57,12 @@ public class CommerceSystem {
               // 2번 의류 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
             } else if (inputNumber == 2) {
                 for (int i = 0; i < clothProducts.size(); i++) {
-                    System.out.println((i + 1) + ". " + clothProducts.get(i).name + " | " + clothProducts.get(i).price + " | " + clothProducts.get(i).description);
+                    System.out.println((i + 1) + ". " + clothProducts.get(i).name + " | " + clothProducts.get(i).price + "원 | " + clothProducts.get(i).description);
                 }
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= clothProducts.size()) {
-                        System.out.println("선택한 상품: " + clothProducts.get(inputElecNumber - 1).name + " | " + clothProducts.get(inputElecNumber - 1).price + " | " + clothProducts.get(inputElecNumber - 1).description + " | 재고: " + clothProducts.get(inputElecNumber - 1).quantity + "개");
+                        System.out.println("선택한 상품: " + clothProducts.get(inputElecNumber - 1).name + " | " + clothProducts.get(inputElecNumber - 1).price + "원 | " + clothProducts.get(inputElecNumber - 1).description + " | 재고: " + clothProducts.get(inputElecNumber - 1).quantity + "개");
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
@@ -72,12 +72,12 @@ public class CommerceSystem {
               // 3번 식품 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
             } else if (inputNumber == 3) {
                 for (int i = 0; i < foodProducts.size(); i++) {
-                    System.out.println((i + 1) + ". " + foodProducts.get(i).name + " | " + foodProducts.get(i).price + " | " + foodProducts.get(i).description);
+                    System.out.println((i + 1) + ". " + foodProducts.get(i).name + " | " + foodProducts.get(i).price + "원 | " + foodProducts.get(i).description);
                 }
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= foodProducts.size()) {
-                        System.out.println("선택한 상품: " + foodProducts.get(inputElecNumber - 1).name + " | " + foodProducts.get(inputElecNumber - 1).price + " | " + foodProducts.get(inputElecNumber - 1).description + " | 재고: " + foodProducts.get(inputElecNumber - 1).quantity + "개");
+                        System.out.println("선택한 상품: " + foodProducts.get(inputElecNumber - 1).name + " | " + foodProducts.get(inputElecNumber - 1).price + "원 | " + foodProducts.get(inputElecNumber - 1).description + " | 재고: " + foodProducts.get(inputElecNumber - 1).quantity + "개");
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
