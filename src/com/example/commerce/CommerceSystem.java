@@ -15,6 +15,7 @@ import java.util.Scanner;
 // !: 공부하면서 알게 된 내용
 public class CommerceSystem {
 
+    // 객체 생성
     List<Product> elecProducts = new ArrayList<>(); // !: 내가 객체를 직접 생성할 때, new 키워드 사용
     List<Product> clothProducts = new ArrayList<>();
     List<Product> foodProducts = new ArrayList<>();

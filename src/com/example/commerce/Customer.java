@@ -9,10 +9,25 @@ package com.example.commerce;
  **/
 
 public class Customer {
-    String customerName;
-    String customerEmail;
-    String customerGrade;
-    String customerTotalPrice;
+    String customerName, customerEmail, customerGrade;
+    long customerTotalPrice;
 
+    Customer(String customerName, String customerEmail) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+    }
 
+    public String makeGrade (long customerTotalPrice) {
+        this.customerTotalPrice = customerTotalPrice;
+
+        if (this.customerTotalPrice < 500000) {
+            return this.customerGrade = "브론즈";
+        } else if (this.customerTotalPrice < 1000000) {
+            return this.customerGrade = "실버";
+        } else if (this.customerTotalPrice < 2000000) {
+            return this.customerGrade = "골드";
+        } else {
+            return this.customerGrade = "플레티넘";
+        }
+    }
 }
