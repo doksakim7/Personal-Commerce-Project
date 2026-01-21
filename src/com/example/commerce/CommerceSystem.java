@@ -44,10 +44,14 @@ public class CommerceSystem {
                 for (int i = 0; i < elecProducts.size(); i++) {
                     System.out.println((i + 1) + ". " + elecProducts.get(i).getName() + " | " + elecProducts.get(i).getPrice() + "원 | " + elecProducts.get(i).getDescription());
                 }
+                System.out.println("0. 뒤로가기"); // 뒤로가기 추가
+
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= elecProducts.size()) {
                         System.out.println("선택한 상품: " + elecProducts.get(inputElecNumber - 1).getName() + " | " + elecProducts.get(inputElecNumber - 1).getPrice() + "원 | " + elecProducts.get(inputElecNumber - 1).getDescription() + " | 재고: " + elecProducts.get(inputElecNumber - 1).getQuantity() + "개");
+                        break;
+                    } else if(inputElecNumber == 0) {
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
@@ -59,10 +63,14 @@ public class CommerceSystem {
                 for (int i = 0; i < clothProducts.size(); i++) {
                     System.out.println((i + 1) + ". " + clothProducts.get(i).getName() + " | " + clothProducts.get(i).getPrice() + "원 | " + clothProducts.get(i).getDescription());
                 }
+                System.out.println("0. 뒤로가기"); // 뒤로가기 추가
+
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= clothProducts.size()) {
                         System.out.println("선택한 상품: " + clothProducts.get(inputElecNumber - 1).getName() + " | " + clothProducts.get(inputElecNumber - 1).getPrice() + "원 | " + clothProducts.get(inputElecNumber - 1).getDescription() + " | 재고: " + clothProducts.get(inputElecNumber - 1).getQuantity() + "개");
+                        break;
+                    } else if(inputElecNumber == 0) {
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
@@ -74,10 +82,14 @@ public class CommerceSystem {
                 for (int i = 0; i < foodProducts.size(); i++) {
                     System.out.println((i + 1) + ". " + foodProducts.get(i).getName() + " | " + foodProducts.get(i).getPrice() + "원 | " + foodProducts.get(i).getDescription());
                 }
+                System.out.println("0. 뒤로가기"); // 뒤로가기 추가
+
                 while (true) {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= foodProducts.size()) {
                         System.out.println("선택한 상품: " + foodProducts.get(inputElecNumber - 1).getName() + " | " + foodProducts.get(inputElecNumber - 1).getPrice() + "원 | " + foodProducts.get(inputElecNumber - 1).getDescription() + " | 재고: " + foodProducts.get(inputElecNumber - 1).getQuantity() + "개");
+                        break;
+                    } else if(inputElecNumber == 0) {
                         break;
                     } else {
                         System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
