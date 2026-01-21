@@ -9,8 +9,9 @@ package com.example.commerce;
  **/
 
 public class Customer {
-    String customerName, customerEmail, customerGrade;
-    long customerTotalPrice;
+    // 필드 캡슐화
+    private String customerName, customerEmail, customerGrade;
+    private long customerTotalPrice;
 
     Customer(String customerName, String customerEmail) {
         this.customerName = customerName;

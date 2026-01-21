@@ -12,9 +12,9 @@ import java.util.List;
 
 public class Category {
 
-    // name, products 필드 생성
-    String name;
-    List<Product> products; // !: 누군가(다른 클래스) 객체를 생성해 줄 때는 선언만 함
+    // name, products 필드 생성, 캡슐화
+    private String name;
+    private List<Product> products;
 
     Category(String name, List<Product> products) {
         this.name = name;
