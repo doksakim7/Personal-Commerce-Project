@@ -25,15 +25,15 @@ public class CommerceSystem {
 
     // 입출력 비즈니스 로직 구현
     public void start() {
-        this.elecProducts = category1.elecProducts();
-        this.clothProducts = category2.clothProducts();
-        this.foodProducts = category3.foodProducts();
+        this.elecProducts = category1.makeElecList();
+        this.clothProducts = category2.makeClothList();
+        this.foodProducts = category3.makeFoodList();
 
         while (true) {
             System.out.println("[ 실시간 커머스 플랫폼 메인 ]");
-            System.out.println("1. " + category1.categoryName("전자제품"));
-            System.out.println("2. " + category2.categoryName("의류"));
-            System.out.println("3. " + category3.categoryName("식품"));
+            System.out.println("1. " + category1.getCategoryName());
+            System.out.println("2. " + category2.getCategoryName());
+            System.out.println("3. " + category3.getCategoryName());
             System.out.println("0. 종료 | 프로그램 종료");
 
             Scanner sc = new Scanner(System.in);
