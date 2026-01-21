@@ -15,32 +15,83 @@ import java.util.Scanner;
 // !: 공부하면서 알게 된 내용
 public class CommerceSystem {
 
-    // Product 관리 리스트 필드 생성
-    List<Product> products; // !: 누군가(다른 클래스) 객체를 생성해 줄 때는 선언만 함
+    List<Product> elecProducts = new ArrayList<>(); // !: 내가 객체를 직접 생성할 때, new 키워드 사용
+    List<Product> clothProducts = new ArrayList<>();
+    List<Product> foodProducts = new ArrayList<>();
+    Category category1 = new Category("전자제품", elecProducts);
+    Category category2 = new Category("의류", clothProducts);
+    Category category3 = new Category("식품", foodProducts);
 
-    // 객체를 생성할 때 리스트화 구현
-    CommerceSystem(List<Product> products) {
-        this.products = products;
-    }
-
-    // 입출력 메서드 구현
+    // 입출력 비즈니스 로직 구현
     public void start() {
-        System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
+        this.elecProducts = category1.elecProducts();
+        this.clothProducts = category2.clothProducts();
+        this.foodProducts = category3.foodProducts();
 
-        // 번호와 함께 전자제품의 이름, 가격, 설명 출력
-        // ?: 향상된 for 문으로 할 수 있는지 궁금함
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println((i + 1) + ". " + products.get(i).name + " | " + products.get(i).price + " | " + products.get(i).description);
-        }
+        while (true) {
+            System.out.println("[ 실시간 커머스 플랫폼 메인 ]");
+            System.out.println("1. " + category1.categoryName("전자제품"));
+            System.out.println("2. " + category2.categoryName("의류"));
+            System.out.println("3. " + category3.categoryName("식품"));
+            System.out.println("0. 종료 | 프로그램 종료");
 
-        System.out.println("0. 종료 | 프로그램 종료");
+            Scanner sc = new Scanner(System.in);
+            int inputNumber = sc.nextInt();
 
-        Scanner sc = new Scanner(System.in);
-        int inputNumber = sc.nextInt();
+            // 1번 전자제품 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
+            if (inputNumber == 1) {
+                for (int i = 0; i < elecProducts.size(); i++) {
+                    System.out.println((i + 1) + ". " + elecProducts.get(i).name + " | " + elecProducts.get(i).price + " | " + elecProducts.get(i).description);
+                }
+                while (true) {
+                    int inputElecNumber = sc.nextInt();
+                    if(inputElecNumber > 0 && inputElecNumber <= elecProducts.size()) {
+                        System.out.println("선택한 상품: " + elecProducts.get(inputElecNumber - 1).name + " | " + elecProducts.get(inputElecNumber - 1).price + " | " + elecProducts.get(inputElecNumber - 1).description + " | 재고: " + elecProducts.get(inputElecNumber - 1).quantity + "개");
+                        break;
+                    } else {
+                        System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
+                    }
+                }
 
-        // 0을 입력 받으면 종료 안내문을 출력하고 종료
-        if (inputNumber == 0) {
-            System.out.println("커머스 플랫폼을 종료합니다.");
+              // 2번 의류 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
+            } else if (inputNumber == 2) {
+                for (int i = 0; i < clothProducts.size(); i++) {
+                    System.out.println((i + 1) + ". " + clothProducts.get(i).name + " | " + clothProducts.get(i).price + " | " + clothProducts.get(i).description);
+                }
+                while (true) {
+                    int inputElecNumber = sc.nextInt();
+                    if(inputElecNumber > 0 && inputElecNumber <= clothProducts.size()) {
+                        System.out.println("선택한 상품: " + clothProducts.get(inputElecNumber - 1).name + " | " + clothProducts.get(inputElecNumber - 1).price + " | " + clothProducts.get(inputElecNumber - 1).description + " | 재고: " + clothProducts.get(inputElecNumber - 1).quantity + "개");
+                        break;
+                    } else {
+                        System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
+                    }
+                }
+
+              // 3번 식품 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
+            } else if (inputNumber == 3) {
+                for (int i = 0; i < foodProducts.size(); i++) {
+                    System.out.println((i + 1) + ". " + foodProducts.get(i).name + " | " + foodProducts.get(i).price + " | " + foodProducts.get(i).description);
+                }
+                while (true) {
+                    int inputElecNumber = sc.nextInt();
+                    if(inputElecNumber > 0 && inputElecNumber <= foodProducts.size()) {
+                        System.out.println("선택한 상품: " + foodProducts.get(inputElecNumber - 1).name + " | " + foodProducts.get(inputElecNumber - 1).price + " | " + foodProducts.get(inputElecNumber - 1).description + " | 재고: " + foodProducts.get(inputElecNumber - 1).quantity + "개");
+                        break;
+                    } else {
+                        System.out.println("잘못된 입력입니다. 상품의 숫자를 다시 입력해주세요.");
+                    }
+                }
+
+              // 0을 입력 받으면 종료 안내문을 출력하고 종료하는 기능 구현
+            } else if (inputNumber == 0) {
+                System.out.println("커머스 플랫폼을 종료합니다.");
+                break;
+              // 범위 외의 숫자를 입력하면 재입력을 안내하는 기능 구현
+            } else {
+                System.out.println("잘못된 입력입니다. 다시 입력해 주세요.");
+            }
+            System.out.println();
         }
     }
 }
