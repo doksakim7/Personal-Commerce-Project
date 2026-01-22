@@ -13,6 +13,8 @@ import java.util.Scanner;
 // !: 공부하면서 알게 된 내용
 public class CommerceSystem {
 
+    ShoppingBag shoppingBag;
+
     // !: 문제 요구 사항에서 리스트 관리는 Category가 맡는다고 나와 있어서 코드를 수정해야 할 필요성을 알게됨
     Category category1 = new Category("전자제품");
     Category category2 = new Category("의류");
@@ -48,7 +50,40 @@ public class CommerceSystem {
                     int inputElecNumber = sc.nextInt();
                     if(inputElecNumber > 0 && inputElecNumber <= category1.getElecList().size()) {
                         System.out.println("선택한 상품: " + category1.getElecList().get(inputElecNumber - 1).getName() + " | " + category1.getElecList().get(inputElecNumber - 1).getPrice() + "원 | " + category1.getElecList().get(inputElecNumber - 1).getDescription() + " | 재고: " + category1.getElecList().get(inputElecNumber - 1).getQuantity() + "개");
-                        break;
+
+                        // 장바구니 기능 구현(ing...) -> 나중에 ShoppingBag 클래스에 분리할 예정
+                        System.out.println("위 상품을 장바구니에 추가하시겠습니까?");
+                        System.out.println("1. 확인           2. 취소");
+                        int inputPurchase = sc.nextInt();
+
+
+                        if(inputPurchase == 1) {
+                            System.out.println("담을 수량을 입력해주세요.");
+                            int inputQuantity = sc.nextInt();
+                            sc.nextLine();
+
+                            if(inputQuantity < 0) {
+                                System.out.println("0보다 큰 수를 입력하세오.");
+                            } else if(inputQuantity > category1.getElecList().get(inputElecNumber - 1).getQuantity()) {
+                                System.out.println("재고가 부족합니다. 현재 재고: " + category1.getElecList().get(inputElecNumber - 1).getQuantity());
+                            } else if(inputQuantity <= category1.getElecList().get(inputElecNumber - 1).getQuantity()) {
+                                shoppingBag = new ShoppingBag(category1.getElecList().get(inputElecNumber - 1).getName(), category1.getElecList().get(inputElecNumber - 1).getPrice(), inputQuantity);
+                                shoppingBag.addBag(category1.getElecList().get(inputElecNumber - 1));
+                                System.out.println(category1.getElecList().get(inputElecNumber - 1).getName() + "가 " + inputQuantity + "개 장바구니에 추가되었습니다.");
+
+                                int newQuantity = category1.getElecList().get(inputElecNumber - 1).getQuantity() - inputQuantity;
+                                category1.setQuantityOFElecList(inputElecNumber - 1, newQuantity);
+                                System.out.println("재고 확인: " + category1.getElecList().get(inputElecNumber - 1).getName() + " | " + category1.getElecList().get(inputElecNumber - 1).getPrice() + "원 | " + category1.getElecList().get(inputElecNumber - 1).getDescription() + " | 남은 재고: " + category1.getElecList().get(inputElecNumber - 1).getQuantity() + "개");
+                                break;
+                            }
+                        } else if (inputPurchase == 2) {
+                            System.out.println("취소되었습니다.");
+                            break;
+                        } else {
+                            System.out.println("잘못된 입력입니다. 숫자를 다시 입력해주세요.");
+                            break;
+                        }
+
                     } else if(inputElecNumber == 0) {
                         break;
                     } else {

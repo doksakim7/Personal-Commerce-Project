@@ -43,6 +43,10 @@ public class Category {
         return products;
     }
 
+    public void setQuantityOFElecList(int inputElecNumber, int newQuantity) {
+        this.products.get(inputElecNumber).setQuantity(newQuantity);
+    }
+
     // 전자제품 카테고리 리스트화 // !: 리스트에 추가만 하므로 반환값 없어도 됨
     public void addElecList() {
         Product product1 = new Product("Galaxy S25", 1_200_000, "최신 안드로이드 스마트폰", 200);

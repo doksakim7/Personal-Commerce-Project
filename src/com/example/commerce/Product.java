@@ -39,4 +39,10 @@ public class Product {
     public int getQuantity() {
         return quantity;
     }
+
+    // 세터
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 }
