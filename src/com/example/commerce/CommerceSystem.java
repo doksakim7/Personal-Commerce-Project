@@ -37,7 +37,20 @@ public class CommerceSystem {
             System.out.println("3. " + category3.getCategoryName());
             System.out.println("0. 종료 | 프로그램 종료");
 
+//            if(!shoppingBag.getShoppingBag().isEmpty()) {
+//                System.out.println("[ 주문 관리 ]");
+//                System.out.println("4. 장바구니 확인 | 장바구니를 확인 후 주문합니다.");
+//                System.out.println("5. 주문 취소 | 진행중인 주문을 취소합니다.");
+//            }
+
             int inputNumber = sc.nextInt();
+
+//            if (inputNumber == 4) {
+//                System.out.println("아래와 같이 주문 하시겠습니까?");
+//                System.out.println("[ 장바구니 내역 ]");
+//                System.out.println(shoppingBag.getShoppingBag().get(0).getName() + " | " + shoppingBag.getShoppingBag().get(0).getPrice() + " | " + shoppingBag.getShoppingBag().get(0).getDescription() + "|" + " | " + shoppingBag.getShoppingBag().get(0).getQuantity());
+//            }
+
 
             // 1번 전자제품 목록의 물품 내역 출력 후 그 중 하나 선택하면 재고까지 출력하는 기능 구현
             if (inputNumber == 1) {
@@ -56,7 +69,6 @@ public class CommerceSystem {
                         System.out.println("1. 확인           2. 취소");
                         int inputPurchase = sc.nextInt();
 
-
                         if(inputPurchase == 1) {
                             System.out.println("담을 수량을 입력해주세요.");
                             int inputQuantity = sc.nextInt();
@@ -66,6 +78,7 @@ public class CommerceSystem {
                                 System.out.println("0보다 큰 수를 입력하세오.");
                             } else if(inputQuantity > category1.getElecList().get(inputElecNumber - 1).getQuantity()) {
                                 System.out.println("재고가 부족합니다. 현재 재고: " + category1.getElecList().get(inputElecNumber - 1).getQuantity());
+                                break;
                             } else if(inputQuantity <= category1.getElecList().get(inputElecNumber - 1).getQuantity()) {
                                 shoppingBag = new ShoppingBag(category1.getElecList().get(inputElecNumber - 1).getName(), category1.getElecList().get(inputElecNumber - 1).getPrice(), inputQuantity);
                                 shoppingBag.addBag(category1.getElecList().get(inputElecNumber - 1));
